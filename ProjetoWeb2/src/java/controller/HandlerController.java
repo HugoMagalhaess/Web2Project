@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,11 +24,12 @@ public class HandlerController extends HttpServlet {
             throws ServletException, IOException {
        
         String param = request.getParameter("action");
-               
+       
+                
         switch(param){
             case "login":
-                String username = request.getParameter("username");
-                String password = request.getParameter("password");
+                
+                //utilizar  request dispatcher  para  encaminhar 
                 
                 LoginController lc = new LoginController();
                // lc.userData(username, password);
@@ -36,6 +38,16 @@ public class HandlerController extends HttpServlet {
             case "home":
                 //implemntar home depois de logado;
                 break;
+            case "myaccout":
+                //link para a pagina minha conta;
+                 break;
+            case "register":
+                RegisterController rc = new RegisterController();
+                rc.doPost(request, response); 
+                break;
+            case "update":
+                break;
+                
         }
         
         

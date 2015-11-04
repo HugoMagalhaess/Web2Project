@@ -1,9 +1,8 @@
 <%-- 
-    Document   : login
-    Created on : Oct 28, 2015, 9:41:28 PM
+    Document   : register
+    Created on : Oct 28, 2015, 11:02:39 PM
     Author     : Hugo Magalhaes
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -133,30 +132,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Login</h2>
-                                                <form action="HandlerController?action=login" method="post">
-							<input type="text" placeholder="Email" name="username" />
-							<input type="password" placeholder="Password" name="password" />
-							<span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
-							</span>
-							<button type="submit" class="btn btn-default">Login</button>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1 col-sm-offset-1"> 
-					<h2 class="orou">OU</h2> <!-- antes era um or  em ingles  mas  deu pau com o jsp-->
-                                </div>
-				<div class="col-sm-4 col-sm-offset-1">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registre-se!</h2>
 						<form action="HandlerController?action=register">
 							<input type="text" placeholder="Nome"/>
 							<input type="email" placeholder="Email"/>
-							<input type="password" placeholder="Password"/>
-							<button type="submit" class="btn btn-default">Signup</button>
+                                                        <input type="street" placeholder="Rua"/>
+							<input type="neighborhood" placeholder="Bairro"/>
+                                                        <input type="city" placeholder="Cidade"/>
+                                                        <input type="state" placeholder="Estado"/>
+                                                        <input type="country" placeholder="País"/>
+							<button type="submit" class="btn btn-default">Registrar</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>
