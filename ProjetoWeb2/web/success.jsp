@@ -5,8 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
+
+<%	
+	if(session.getAttribute("username") != null) {
+%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -97,8 +102,10 @@
 								<li><a href="cart.html"><i class="fa fa-user"></i> Minha Conta</a></li>
 								<li><a href="cart.html"><i class="fa fa-star"></i> Meus Anuncios</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Inserir Anuncio</a></li>
-								<li><a href="login.jsp"><i class="fa fa-exclamation-circle"></i> Ola ${requestScope['user'].username}</a></li>
-							</ul>
+								<li><a href="login.jsp"><i class="fa fa-exclamation-circle"></i> Ola <% out.print(session.getAttribute("username")); %></a></li>
+                                                                <form action="HandlerController?action=logout" method="post"><button type="submit" class="btn btn-default">Logout</button></form>
+                                                                
+                                                        </ul>
 						</div>
 					</div>
 				</div>
@@ -633,3 +640,13 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html> 
+
+<%
+	// se não existir um login na sessao, 
+	// vai enviar para a página de login novamente
+	} else {
+%>
+	<jsp:forward page="index.jsp"></jsp:forward>
+<%
+}
+%>

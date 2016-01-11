@@ -35,8 +35,9 @@ public class HandlerController extends HttpServlet {
                // lc.userData(username, password);
                 lc.doPost(request,response);
                 break;
-            case "home":
-                //implemntar home depois de logado;
+            case "logout":
+                LogoutController logout = new LogoutController();
+                logout.doPost(request, response);
                 break;
             case "myaccout":
                 //link para a pagina minha conta;

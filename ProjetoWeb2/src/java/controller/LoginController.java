@@ -12,9 +12,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Authenticator;
 import model.User;
+import persistenceDAOPdo.UserDAOPdo;
 
 /**
  *
@@ -32,18 +34,25 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String param = request.getParameter("a");
-         String username = request.getParameter("username");
+       
+         String username = request.getParameter("username");// lembrar de trocar para email na pagina jsp  e trocar todos para email
          String password =  request.getParameter("password");
         
         RequestDispatcher rd = null;
         
         Authenticator authenticator = new Authenticator();
-		String result = authenticator.authenticate(username, password);
-		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/success.jsp");
-			User user = new User(username, password);
-			request.setAttribute("user", user);
+                   
+                User user = authenticator.authenticate(username, password);
+		if (user != null) {
+			//rd = request.getRequestDispatcher("/success.jsp");
+			
+			                // UserDAOPdo teste = new UserDAOPdo();
+                                        // teste.insertUser(user);
+                        HttpSession session = request.getSession();
+                        session.setAttribute("username", user.getName());
+                        
+                        //request.setAttribute("user", user);
+                        rd = request.getRequestDispatcher("/success.jsp");
 		} else {
 			rd = request.getRequestDispatcher("/error.jsp");
 		}

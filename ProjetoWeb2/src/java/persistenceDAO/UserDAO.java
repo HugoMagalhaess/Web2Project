@@ -10,11 +10,12 @@ import model.User;
 /**
  *
  * @author Hugo Magalhaes
+ * T
  */
 public interface UserDAO {
-    public User searchUser(User user);
-   // public User registration(User user);
-   // public User updateUser(User user);
-    
-    
+    public User searchUserByEmail(User user);
+    public boolean registration(User user);
+    public void updateUser(User user);
+    public void deleteUser (User user);
+    public void insertUser(User user);
 }

@@ -7,44 +7,42 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.RegisterUser;
-import model.User;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Hugo Magalhaes
  */
-public class RegisterController extends HttpServlet {
+public class LogoutController extends HttpServlet {
 
-    
+   public LogoutController(){
+       super();
+   }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-       User user = new User();
-       RegisterUser register =  new RegisterUser();
-       boolean result = false;
         
-       user.setName(request.getParameter("name"));
-       user.setEmail(request.getParameter("email"));
-       user.setPassword(request.getParameter("password"));
-       
-       result = register.registerUser(user);
-       
-       if(result == true){
-           System.out.println("sucesso");
-       }else{
-           System.out.println("failure");
-       }
+        HttpSession session = request.getSession();
+        session.invalidate();
+        RequestDispatcher redirect = request.getRequestDispatcher("/index.html");
       
+        redirect.forward(request, response);
        
-       
-        
     }
 
-  
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

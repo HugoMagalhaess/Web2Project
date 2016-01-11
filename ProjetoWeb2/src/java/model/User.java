@@ -11,11 +11,21 @@ package model;
  */
 public class User {
     
-    String username;
-    String password;
-    String phone;
-    String street;
-    String cpf;
+    private int userID;
+    private String username;
+    private String name;
+    private String email;
+    private String password;
+    private String phone;
+    private String street;
+    private String city;
+    private String state;
+    private String urlImage;
+    private String cpf;
+
+    public User() {
+    }
+    
 
     public User(String username, String password){
       this.username =  username;
@@ -60,6 +70,54 @@ public class User {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
     
     

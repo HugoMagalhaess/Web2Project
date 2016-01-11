@@ -153,9 +153,10 @@
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registre-se!</h2>
 						<form action="HandlerController?action=register">
-							<input type="text" placeholder="Nome"/>
-							<input type="email" placeholder="Email"/>
-							<input type="password" placeholder="Password"/>
+							<input type="text" placeholder="Nome" name="name"/>
+							<input type="email" placeholder="Email" name="email"/>
+                                                        <input type="password" placeholder="Password" name="password"/>
+                                                        <input type="password" placeholder="Confirm password" name="password2"/>
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>
 					</div><!--/sign up form-->
