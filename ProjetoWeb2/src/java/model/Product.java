@@ -11,12 +11,39 @@ package model;
  */
 public class Product {
     
+    private int idProduct;
+    private int productUserID;
     private String productName;
     private String price;
     private String category;
     private String title;
     private String description;
+    private String productImage;
 
+    public int getProductUserID() {
+        return productUserID;
+    }
+
+    public void setProductUserID(int productUserID) {
+        this.productUserID = productUserID;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+    
+    
+    public int getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
+    }
     public String getProductName() {
         return productName;
     }

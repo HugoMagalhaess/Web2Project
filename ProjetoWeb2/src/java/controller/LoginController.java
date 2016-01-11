@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Authenticator;
+import model.Product;
 import model.User;
+import persistenceDAOPdo.ProductDAOPdo;
 import persistenceDAOPdo.UserDAOPdo;
 
 /**
@@ -37,21 +40,22 @@ public class LoginController extends HttpServlet {
        
          String username = request.getParameter("username");// lembrar de trocar para email na pagina jsp  e trocar todos para email
          String password =  request.getParameter("password");
-        
-        RequestDispatcher rd = null;
-        
-        Authenticator authenticator = new Authenticator();
-                   
+         RequestDispatcher rd = null;
+         List<Product> products;
+         ProductDAOPdo plist = new ProductDAOPdo();
+         products =  plist.ListAllproducts();
+                 
+         Authenticator authenticator = new Authenticator();
+                 
                 User user = authenticator.authenticate(username, password);
+                
+                
 		if (user != null) {
-			//rd = request.getRequestDispatcher("/success.jsp");
-			
-			                // UserDAOPdo teste = new UserDAOPdo();
-                                        // teste.insertUser(user);
                         HttpSession session = request.getSession();
-                        session.setAttribute("username", user.getName());
-                        
-                        //request.setAttribute("user", user);
+                        session.setAttribute("user", user);   
+                        if(products != null){
+                        session.setAttribute("products", products);
+                        }
                         rd = request.getRequestDispatcher("/success.jsp");
 		} else {
 			rd = request.getRequestDispatcher("/error.jsp");

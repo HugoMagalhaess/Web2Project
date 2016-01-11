@@ -134,14 +134,15 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registre-se!</h2>
-						<form action="HandlerController?action=register">
-							<input type="text" placeholder="Nome"/>
+                                                <form action="HandlerController?action=register" method="post">
+                                                    <input type="text" placeholder="Nome" name="nome"/>
 							<input type="email" placeholder="Email"/>
-                                                        <input type="street" placeholder="Rua"/>
-							<input type="neighborhood" placeholder="Bairro"/>
-                                                        <input type="city" placeholder="Cidade"/>
-                                                        <input type="state" placeholder="Estado"/>
-                                                        <input type="country" placeholder="País"/>
+                                                        <input type="password" placeholder="Senha" name="password"/>
+                                                        <input type="text" placeholder="Rua" name="street"/>
+                                                        <input type="text" placeholder="Bairro" name="neighborhood"/>
+                                                        <input type="text" placeholder="Cidade" name="city"/>
+                                                        <input type="text" placeholder="Estado" name="state"/>
+                                                        <input type="text" placeholder="País" name="country"/>  
 							<button type="submit" class="btn btn-default">Registrar</button>
 						</form>
 					</div><!--/sign up form-->

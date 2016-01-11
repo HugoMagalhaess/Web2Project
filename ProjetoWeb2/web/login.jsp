@@ -72,11 +72,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="login.jsp" class="active"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -152,8 +152,9 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registre-se!</h2>
-						<form action="HandlerController?action=register">
-							<input type="text" placeholder="Nome" name="name"/>
+                                                <form action="HandlerController?action=register"  method="post">
+<!--						<form action="register.jsp">	-->
+                                                        <input type="text" placeholder="Nome" name="name"/>
 							<input type="email" placeholder="Email" name="email"/>
                                                         <input type="password" placeholder="Password" name="password"/>
                                                         <input type="password" placeholder="Confirm password" name="password2"/>

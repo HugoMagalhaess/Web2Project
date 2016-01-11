@@ -4,7 +4,13 @@
     Author     : Hugo Magalhaes
 --%>
 
+<%@page import="model.User"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% Product product = (Product)session.getAttribute("product");
+    User contato = (User)session.getAttribute("contato");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -205,31 +211,12 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="assets/images/home/carrinho_bebe.jpg" alt="" />
+<!--								<img src="assets/images/home/carrinho_bebe.jpg" alt="" />-->
+                                                                <img src="<% out.print(product.getProductImage()); %>" alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								
-								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
-										<div class="item active">
-										  <a href=""><img src="assets/images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="assets/images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="assets/images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="assets/images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										
-									</div>
-
 								  <!-- Controls -->
 								  <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
@@ -243,11 +230,11 @@
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<img src="assets/images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2>Carrinho Bebe Colorblock Scuba</h2>
-								<p>Web ID: 1089772</p>
+								<h2><% out.print(product.getProductName()); %></h2>
 								<img src="assets/images/product-details/rating.png" alt="" />
-								<span>
-									<span> R$59</span>
+								
+                                                                <span>
+									<span> <% out.print(product.getPrice()); %> </span>
 <!--									<label>Quantity:</label>-->
 									<!--<input type="text" value="3" />-->
 									<button type="button" class="btn btn-fefault cart">
@@ -255,9 +242,9 @@
 										Envie uma Mensagem
 									</button>
 								</span>
-								<p><b>Contato:</b> 8888-8888</p>
-								<p><b>Condition:</b> New</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
+								<p><b>Contato:</b> <% out.print(contato.getName()); %></p>
+								<p><b>Telefone:</b> <% out.print(contato.getPhone()); %></p>
+								<p><b>Email:</b> <% out.print(contato.getEmail()); %></p>
 								<a href=""><img src="assets/images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>

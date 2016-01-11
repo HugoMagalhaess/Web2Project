@@ -14,8 +14,10 @@ import model.User;
  */
 public interface UserDAO {
     public User searchUserByEmail(User user);
+    public User searchUserById(int userId);
     public boolean registration(User user);
     public void updateUser(User user);
     public void deleteUser (User user);
     public void insertUser(User user);
+    
 }

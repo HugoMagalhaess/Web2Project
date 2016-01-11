@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,9 +37,11 @@ public class RegisterController extends HttpServlet {
        result = register.registerUser(user);
        
        if(result == true){
-           System.out.println("sucesso");
+           RequestDispatcher redirect =  request.getRequestDispatcher("/login.jsp");
+           redirect.forward(request, response);
        }else{
-           System.out.println("failure");
+           RequestDispatcher redirect =  request.getRequestDispatcher("/index.html");
+           redirect.forward(request, response);
        }
       
        
